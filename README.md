@@ -1,68 +1,29 @@
+# Dino Run: Meteor Escape
 
-# Dino Chrome — Alien Edition
+A simple endless runner game inspired by the Chrome Dino game, featuring a dinosaur escaping from falling meteors.
 
-A custom pixel-art endless runner game set on an
-unknown alien planet.
+## Features
 
-## Project Information
-
-- Genre: Endless Runner
-- Platform: Web
-- Technology: HTML, CSS, JavaScript
-- Rendering: HTML5 Canvas
-- Art Style: Pixel Art
-- Theme: Alien Planet
-
-## Current Version
-
-v0.1.0 — Gameplay Foundation
-
-## Current Features
-
-- Automatic game loop
-- Alien dinosaur character
-- Running animation
-- Jump mechanics
-- Duck mechanics
-- Keyboard controls
-- Touch controls
-- Responsive canvas
+- Endless runner gameplay.
+- Jump mechanics to avoid incoming meteors.
+- Increasing game speed over time.
+- Score and best score tracking.
+- Responsive game interface.
+- Pixel-art inspired visuals.
 
 ## Controls
 
-| Input | Action |
-|---|---|
-| Space | Jump |
-| Arrow Up | Jump |
-| Arrow Down | Duck |
-| Mouse Click | Jump |
-| Touch Jump | Jump |
-| Hold Duck | Duck |
+- **Space / Arrow Up:** Jump
+- **Touch:** Jump on mobile devices
 
-## Running Locally
+## Built With
 
-Open the project using VS Code and
-run it with Live Server.
+- HTML
+- CSS
+- JavaScript
+- HTML Canvas
 
-Alternatively:
+## Overview
 
-```bash
-python -m http.server 8000
-```
+Dino Run: Meteor Escape is a simple browser-based game focused on classic endless runner mechanics with a meteor survival theme.
 
-Then open:
-
-http://localhost:8000
-
-## Development Roadmap
-
-- [x] v0.1 - Gameplay Foundation
-- [ ] v0.2 - Obstacle & Collision
-- [ ] v0.3 - Scoring & Difficulty
-- [ ] v0.4 - Alien Environment
-- [ ] v0.5 - Animation & Audio
-- [ ] v0.6 - Interface & UX
-- [ ] v0.7 - Gameplay Polish
-- [ ] v0.8 - Visual Polish
-- [ ] v0.9 - Testing & Optimization
-- [ ] v1.0 - Release
