@@ -1,122 +1,86 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#151923" />
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#080d09">
-    <meta name="description" content="Dino Chrome: Alien Edition - A pixel art endless runner.">
-    <title>Dino Chrome: Alien Edition</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <main class="app">
-        <header class="topbar">
-            <a class="brand" href="#" aria-label="Dino Chrome home">
-                <span class="brand-mark">D</span>
-                <span>DINO CHROME</span>
-            </a>
-            <div class="topbar-right">
-                <span class="edition">ALIEN EDITION</span>
-                <button id="soundButton" class="icon-button" type="button" aria-label="Toggle sound">♫</button>
+    <title>Dino Run - Meteor Escape</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/game.js" defer></script>
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <a href="#" class="brand">
+          <div class="brand-icon">D</div>
+          <div>
+            <h1>DINO RUN</h1>
+            <span>METEOR ESCAPE</span>
+          </div>
+        </a>
+
+        <div class="score-board">
+          <div class="score-item">
+            <span>SCORE</span>
+            <strong id="score">00000</strong>
+          </div>
+
+          <div class="score-item">
+            <span>BEST</span>
+            <strong id="best">00000</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="game-panel">
+        <div class="game-heading">
+          <span class="game-label">EXTINCTION RUN</span>
+          <span class="game-status" id="status">READY</span>
+        </div>
+
+        <div class="canvas-wrapper">
+          <canvas
+            id="gameCanvas"
+            width="900"
+            height="360"
+            aria-label="Dinosaurus menghindari meteor"
+          ></canvas>
+
+          <div class="overlay" id="overlay">
+            <div class="overlay-content">
+              <span class="overlay-label" id="overlayLabel">
+                WARNING: METEOR SHOWER
+              </span>
+
+              <h2 id="overlayTitle">RUN, DINO!</h2>
+
+              <p id="overlayDescription">
+                Hujan meteor telah dimulai. Bantu dinosaurus bertahan sejauh
+                mungkin.
+              </p>
+
+              <button id="startButton">START GAME</button>
             </div>
-        </header>
+          </div>
+        </div>
 
-        <section class="game-shell">
-            <div class="game-topline">
-                <span>PLANET X-01</span>
-                <span id="statusText">SYSTEM STANDBY</span>
-            </div>
+        <div class="game-controls">
+          <div class="control-keys">
+            <span class="key">SPACE</span>
+            <span class="key">↑</span>
+            <span class="control-text">JUMP</span>
+          </div>
 
-            <div class="game-frame">
-                <canvas id="gameCanvas" width="960" height="360"
-                    aria-label="Dino Chrome game area"></canvas>
+          <span class="control-info"> Press space or tap to jump </span>
+        </div>
+      </section>
 
-                <div class="hud" id="hud">
-                    <div class="hud-item">
-                        <span class="hud-label">SCORE</span>
-                        <strong id="scoreValue">00000</strong>
-                    </div>
-                    <div class="hud-item best">
-                        <span class="hud-label">BEST</span>
-                        <strong id="bestValue">00000</strong>
-                    </div>
-                </div>
-
-                <section class="overlay" id="menuOverlay">
-                    <div class="panel">
-                        <div class="eyebrow">UNKNOWN WORLD / SURVIVAL RUN</div>
-                        <h1>DINO <span>CHROME</span></h1>
-                        <p class="subtitle">ALIEN EDITION</p>
-                        <p class="panel-copy">
-                            An unknown planet. Endless terrain.<br>
-                            Keep running. Stay alive.
-                        </p>
-                        <button class="primary-button" id="playButton" type="button">
-                            START EXPEDITION <span>→</span>
-                        </button>
-                        <p class="small-note">SPACE / ↑ JUMP &nbsp; · &nbsp; ↓ DUCK</p>
-                    </div>
-                </section>
-
-                <section class="overlay hidden" id="pauseOverlay">
-                    <div class="panel compact-panel">
-                        <div class="eyebrow">EXPEDITION INTERRUPTED</div>
-                        <h2>PAUSED</h2>
-                        <p class="panel-copy">Take a moment. Your journey is waiting.</p>
-                        <button class="primary-button" id="resumeButton" type="button">
-                            RESUME <span>→</span>
-                        </button>
-                        <button class="secondary-button" id="pauseMenuButton" type="button">
-                            RETURN TO MENU
-                        </button>
-                    </div>
-                </section>
-
-                <section class="overlay hidden" id="gameOverOverlay">
-                    <div class="panel compact-panel">
-                        <div class="eyebrow">SIGNAL LOST / RUN TERMINATED</div>
-                        <h2>GAME OVER</h2>
-                        <div class="result-grid">
-                            <div>
-                                <span class="hud-label">YOUR SCORE</span>
-                                <strong id="finalScore">00000</strong>
-                            </div>
-                            <div>
-                                <span class="hud-label">BEST SCORE</span>
-                                <strong id="finalBest">00000</strong>
-                            </div>
-                        </div>
-                        <button class="primary-button" id="retryButton" type="button">
-                            TRY AGAIN <span>↻</span>
-                        </button>
-                        <button class="secondary-button" id="gameOverMenuButton" type="button">
-                            MAIN MENU
-                        </button>
-                    </div>
-                </section>
-            </div>
-
-            <div class="game-bottomline">
-                <span id="runMessage">READY FOR DEPLOYMENT</span>
-                <span>BUILD 1.0.0</span>
-            </div>
-
-            <div class="mobile-controls">
-                <button id="mobileDuck" class="touch-button" type="button">DUCK <span>↓</span></button>
-                <button id="mobileJump" class="touch-button jump-touch" type="button">JUMP <span>↑</span></button>
-            </div>
-        </section>
-
-        <footer class="footer">
-            <div>
-                <span class="footer-dot"></span>
-                <span>ALIEN EXPEDITION PROJECT</span>
-            </div>
-            <span>NO SIGNAL REQUIRED</span>
-        </footer>
+      <footer class="footer">
+        <span>DINO RUN: METEOR ESCAPE</span>
+        <span>ENDLESS RUNNER</span>
+      </footer>
     </main>
-
-    <script type="module" src="js/main.js"></script>
-</body>
+  </body>
 </html>
